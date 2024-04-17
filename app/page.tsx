@@ -9,7 +9,6 @@ async function fetchData() {
 }
 
 export default async function Home() {
-  //TODO Modificar estilos generales de la app
   const products: Product[] = await fetchData();
 
   return (
