@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+//TODO Modificar el navbar acorde al proyecto
+
 export default function Navbar() {
   return (
     <nav className="mx-auto max-w-2xl p-4 lg:max-w-7xl lg:px-8 flex justify-between">
