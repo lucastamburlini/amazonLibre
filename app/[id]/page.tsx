@@ -4,6 +4,8 @@ import { Product } from "../lib/definitions";
 import Image from "next/image";
 import Button from "../ui/Button";
 
+// TODO agregar las funcionalidades a los botones de "Añadir al carrito" y de "ir al carrito"
+
 export default function Page({ params }: { params: { id: number } }) {
   const { id } = params;
 
