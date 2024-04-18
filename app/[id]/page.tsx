@@ -31,9 +31,9 @@ export default function Page({ params }: { params: { id: number } }) {
         productDetail && (
           <article className="min-h-96 mx-auto max-w-2xl px-4 py-14 sm:px-6 lg:max-w-7xl lg:px-8 justify-center flex">
             <div className="flex items-center w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl justify-center">
-              <div className="relative bg-gray-100 flex w-full items-center overflow-hidden px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8 rounded">
+              <div className="relative bg-gray-100 flex w-full items-center overflow-hidden px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
                 <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-                  <div className="h-80 aspect-h-3 aspect-w-2 overflow-hidden rounded-lg sm:col-span-4 lg:col-span-5 bg-white items-center justify-center flex rounded">
+                  <div className="h-80 aspect-h-3 aspect-w-2 overflow-hidden sm:col-span-4 lg:col-span-5 bg-white items-center justify-center flex">
                     <Image
                       src={productDetail.image}
                       alt={productDetail.title}
