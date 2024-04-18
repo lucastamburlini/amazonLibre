@@ -1,34 +1,39 @@
 import Link from "next/link";
 
-//TODO modificar el navbar acorde al proyecto
-
 export default function Navbar() {
   return (
-    <nav className="mx-auto max-w-2xl p-4 lg:max-w-7xl lg:px-8 flex justify-between">
-      <div className="flex flex-col text-5x1  rounded p-1 justify-center">
-        <div className="text-xs font-bold">
-        3rd Class - Next.js with TypeScript
+    <nav className="bg-slate-900 text-white">
+      <div className="mx-auto max-w-2xl p-4 lg:max-w-7xl lg:px-8 flex justify-between">
+        <div className="flex flex-col text-5x1 p-1 justify-center">
+          <div className="text-base font-bold">AmazonLibre</div>
         </div>
-        <div className="text-xs text-orange-500">Hedy Software</div>
-      </div>
 
-      <div className="flex gap-8 items-center justify-center">
-        <Link
-          href={"/"}
-          className="hover:text-orange-500 transition-colors duration-200"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="1.5em"
-            height="1.5em"
-            viewBox="0 0 24 24"
+        <div className="flex gap-8 items-center justify-center">
+          <Link
+            href={"/"}
+            className="hover:font-bold transition-font duration-200"
           >
-            <path
-              fill="currentColor"
-              d="M4.5 21q-.625 0-1.062-.437T3 19.5v-1.9l4-3.55V21zM8 21v-4h8v4zm9 0v-8.2L12.725 9l3.025-2.675l4.75 4.225q.25.225.375.513t.125.612V19.5q0 .625-.437 1.063T19.5 21zM3 16.25v-4.575q0-.325.125-.625t.375-.5L11 3.9q.2-.2.463-.287T12 3.525q.275 0 .538.088T13 3.9l2 1.775z"
-            />
-          </svg>
-        </Link>
+            Products
+          </Link>
+          <Link
+            href={"/cart"}
+            className="hover:font-bold transition-font duration-200"
+          >
+            Cart
+          </Link>
+          <Link
+            href={"/dashboard"}
+            className="hover:font-bold transition-font duration-200"
+          >
+            My account
+          </Link>
+          <Link
+            href={"/login"}
+            className="hover:font-bold transition-font duration-200"
+          >
+            Log In
+          </Link>
+        </div>
       </div>
     </nav>
   );
