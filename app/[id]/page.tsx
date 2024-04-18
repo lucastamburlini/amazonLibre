@@ -4,8 +4,6 @@ import { Product } from "../lib/definitions";
 import Image from "next/image";
 import Button from "../ui/Button";
 
-//TODO botones de agregar-quitar el producto al carrito
-
 export default function Page({ params }: { params: { id: number } }) {
   const { id } = params;
 
