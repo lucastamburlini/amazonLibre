@@ -1,25 +1,24 @@
+// TODO agregar las funcionalidades a los botones de "Añadir al carrito" y de "ir al carrito"
+
 "use client";
 import { useEffect, useState } from "react";
 import { Product } from "../lib/definitions";
 import Image from "next/image";
 import Button from "../ui/Button";
 import Link from "next/link";
+import { useCart } from "../context/cartContext";
 
-// TODO agregar las funcionalidades a los botones de "Añadir al carrito" y de "ir al carrito"
+
+
+
 
 export default function Page({ params }: { params: { id: number } }) {
   const { id } = params;
+  const { addToCart, cart } = useCart();
 
   const [productDetail, setProductDetail] = useState<Product>();
   const [loading, setLoading] = useState<boolean>(false);
-
-  
-  const handleAddToCart = () => {
-    console.log("Agregar al carrito", productDetail)
-  }
-
-
-
+ 
   useEffect(() => {
     setLoading(true);
     async function fetchDetailData() {
@@ -31,7 +30,14 @@ export default function Page({ params }: { params: { id: number } }) {
     fetchDetailData();
   }, []);
 
+  const handleAddToCart = () => {
+    if (productDetail){
+      addToCart(productDetail)
+    }
+  }
+
   return (
+    
     <section>
       {productDetail && (
         <article className="min-h-96 mx-auto max-w-2xl px-4 py-14 sm:px-6 lg:max-w-7xl lg:px-8 justify-center flex">
