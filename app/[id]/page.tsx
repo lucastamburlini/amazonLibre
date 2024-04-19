@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Product } from "../lib/definitions";
 import Image from "next/image";
 import Button from "../ui/Button";
+import Link from "next/link";
 
 // TODO agregar las funcionalidades a los botones de "Añadir al carrito" y de "ir al carrito"
 
@@ -11,14 +12,13 @@ export default function Page({ params }: { params: { id: number } }) {
 
   const [productDetail, setProductDetail] = useState<Product>();
   const [loading, setLoading] = useState<boolean>(false);
+
   
   const handleAddToCart = () => {
     console.log("Agregar al carrito", productDetail)
   }
 
-  const handleGoToCart = () => {
-    console.log("Ir al carrito")
-  }
+
 
   useEffect(() => {
     setLoading(true);
@@ -75,7 +75,11 @@ export default function Page({ params }: { params: { id: number } }) {
                     </div>
                     <div className="flex gap-3">
                     <Button text={"Agregar al carrito"} onClick={handleAddToCart} />
-                    <Button text={"Ir al carrito"} onClick={handleGoToCart} />
+                    <Link href='/cart' className="bg-blue-500 hover:bg-blue-700 
+                      text-white font-bold py-2 px-4 border 
+                      border-blue-700 rounded-full" title="Ir al carrito"> 
+                      Ir al carrito
+                    </Link>
                     </div>
                   </section>
                 </div>
