@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/Navbar";
 import Footer from "./ui/Footer";
+import { CartProvider } from "./context/cartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,11 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <CartProvider>
       <body className={inter.className} suppressHydrationWarning={true}>
+      
         <Navbar />
         {children}
         <Footer />
       </body>
+      </CartProvider>
     </html>
   );
 }
