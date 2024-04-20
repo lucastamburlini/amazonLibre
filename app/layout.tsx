@@ -7,7 +7,7 @@ import { CartProvider } from "./context/cartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
-//TODO hacer un contexto de usuario y carrito de compras
+//TODO hacer un contexto de usuario
 
 export const metadata: Metadata = {
   title: "Clase 3",
@@ -22,12 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <CartProvider>
-      <body className={inter.className} suppressHydrationWarning={true}>
-      
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+        <body className={inter.className} suppressHydrationWarning={true}>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
       </CartProvider>
     </html>
   );

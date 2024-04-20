@@ -1,24 +1,22 @@
-"use client"
-//TODO crear un checkout para el carrito de compras  
+"use client";
 //TODO boton de comprar con un alert de confirmacion
 //TODO boton limpiar el carrito y redirigir a root
 
-
 import { useCart } from "../context/cartContext";
 import Image from "next/image";
-import { Product } from "../lib/definitions";
 import Link from "next/link";
 
 export default function Cart() {
   const { cart, clearCart } = useCart();
 
-  // Función para calcular el precio total del carrito
   const calculateTotalCartPrice = () => {
-    const totalPrice = cart.reduce((total, product) => total + product.price, 0);
+    const totalPrice = cart.reduce(
+      (total, product) => total + product.price,
+      0
+    );
     return totalPrice;
   };
 
-  // Función para manejar el clic en el botón de limpiar carrito
   const handleClearCart = () => {
     clearCart();
     alert("El carrito ha sido limpiado");
@@ -48,24 +46,35 @@ export default function Cart() {
                   </div>
                   <div className="flex-grow">
                     <h2 className="text-xl font-semibold">{product.title}</h2>
-                    <p className="text-gray-600">Cantidad: 1</p> {/* Cantidad predeterminada */}
-                    <p className="text-gray-600">Precio por unidad: ${product.price}</p>
+                    <p className="text-gray-600">Cantidad: 1</p>{" "}
+                    {/* Cantidad predeterminada */}
+                    <p className="text-gray-600">
+                      Precio por unidad: ${product.price}
+                    </p>
                   </div>
                 </li>
               ))}
               <li className="mb-4">
                 <h2 className="text-xl font-semibold">Total</h2>
-                <p className="text-gray-600">Precio total del carrito: ${calculateTotalCartPrice()}</p>
+                <p className="text-gray-600">
+                  Precio total del carrito: ${calculateTotalCartPrice()}
+                </p>
               </li>
               <li>
-              <Link className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
-                href={'/'} 
-                onClick={handleClearCart}>
-                Limpiar</Link>
-                <Link className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-3" 
-                href={'/'} 
-                onClick={handleBuyCart}>
-                Comprar</Link>
+                <Link
+                  className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  href={"/"}
+                  onClick={handleClearCart}
+                >
+                  Limpiar
+                </Link>
+                <Link
+                  className="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ms-3"
+                  href={"/"}
+                  onClick={handleBuyCart}
+                >
+                  Comprar
+                </Link>
               </li>
             </ul>
           ) : (

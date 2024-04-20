@@ -1,6 +1,5 @@
-// TODO agregar las funcionalidades a los botones de "Añadir al carrito" y de "ir al carrito"
-
 "use client";
+
 import { useEffect, useState } from "react";
 import { Product } from "../lib/definitions";
 import Image from "next/image";
@@ -8,17 +7,13 @@ import Button from "../ui/Button";
 import Link from "next/link";
 import { useCart } from "../context/cartContext";
 
-
-
-
-
 export default function Page({ params }: { params: { id: number } }) {
   const { id } = params;
   const { addToCart, cart } = useCart();
 
   const [productDetail, setProductDetail] = useState<Product>();
   const [loading, setLoading] = useState<boolean>(false);
- 
+
   useEffect(() => {
     setLoading(true);
     async function fetchDetailData() {
@@ -31,13 +26,12 @@ export default function Page({ params }: { params: { id: number } }) {
   }, []);
 
   const handleAddToCart = () => {
-    if (productDetail){
-      addToCart(productDetail)
+    if (productDetail) {
+      addToCart(productDetail);
     }
-  }
+  };
 
   return (
-    
     <section>
       {productDetail && (
         <article className="min-h-96 mx-auto max-w-2xl px-4 py-14 sm:px-6 lg:max-w-7xl lg:px-8 justify-center flex">
@@ -80,12 +74,19 @@ export default function Page({ params }: { params: { id: number } }) {
                       </div>
                     </div>
                     <div className="flex gap-3">
-                    <Button text={"Agregar al carrito"} onClick={handleAddToCart} />
-                    <Link href='/cart' className="bg-blue-500 hover:bg-blue-700 
+                      <Button
+                        text={"Agregar al carrito"}
+                        onClick={handleAddToCart}
+                      />
+                      <Link
+                        href="/cart"
+                        className="bg-blue-500 hover:bg-blue-700 
                       text-white font-bold py-2 px-4 border 
-                      border-blue-700 rounded-full" title="Ir al carrito"> 
-                      Ir al carrito
-                    </Link>
+                      border-blue-700 rounded-full"
+                        title="Ir al carrito"
+                      >
+                        Ir al carrito
+                      </Link>
                     </div>
                   </section>
                 </div>
