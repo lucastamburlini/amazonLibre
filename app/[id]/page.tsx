@@ -6,16 +6,16 @@ import Image from "next/image";
 import Button from "../ui/Button";
 import Link from "next/link";
 import { useCart } from "../context/cartContext";
+import Loading from "../loading";
 
 export default function Page({ params }: { params: { id: number } }) {
   const { id } = params;
-  const { addToCart, cart } = useCart();
+  const { addToCart } = useCart();
 
   const [productDetail, setProductDetail] = useState<Product>();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     async function fetchDetailData() {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       const productDetail = await response.json();
@@ -24,6 +24,14 @@ export default function Page({ params }: { params: { id: number } }) {
     }
     fetchDetailData();
   }, []);
+
+  if (isLoading) return <Loading />;
+  if (!productDetail)
+    return (
+      <p className="min-w-full h-80 py-72 flex justify-center items-center">
+        No profile data
+      </p>
+    );
 
   const handleAddToCart = () => {
     if (productDetail) {
@@ -45,7 +53,6 @@ export default function Page({ params }: { params: { id: number } }) {
                     className="max-w-full max-h-full group-hover:opacity-75 p-2"
                     width={200}
                     height={200}
-                    priority={true}
                   />
                 </div>
                 <div className="sm:col-span-8 lg:col-span-7">
