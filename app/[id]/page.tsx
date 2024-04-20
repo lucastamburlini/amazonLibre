@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Product } from "../lib/definitions";
 import Image from "next/image";
-import Button from "../ui/Button";
+import Button from "../ui/ButtonOne";
 import Link from "next/link";
 import { useCart } from "../context/cartContext";
 import Loading from "../loading";
@@ -81,18 +81,15 @@ export default function Page({ params }: { params: { id: number } }) {
                       </div>
                     </div>
                     <div className="flex gap-3">
-                      <Button
-                        text={"Agregar al carrito"}
-                        onClick={handleAddToCart}
-                      />
+                      <Button text={"Add to cart"} onClick={handleAddToCart} />
                       <Link
                         href="/cart"
                         className="bg-blue-500 hover:bg-blue-700 
-                      text-white font-bold py-2 px-4 border 
-                      border-blue-700 rounded-full"
+                      text-white px-5 py-2.5 border 
+                      border-blue-700 rounded-full text-sm font-medium"
                         title="Ir al carrito"
                       >
-                        Ir al carrito
+                        Go to cart
                       </Link>
                     </div>
                   </section>
