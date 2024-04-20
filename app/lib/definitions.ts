@@ -10,3 +10,14 @@ export interface Product {
     count: number;
   };
 }
+
+export interface ButtonProps {
+  text: string;
+  onClick: () => void;
+}
+
+export interface CartContextType {
+  cart: Product[];
+  addToCart: (product: Product) => void;
+  clearCart: () => void;
+}

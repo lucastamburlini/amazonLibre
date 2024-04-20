@@ -3,10 +3,11 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./ui/Navbar";
 import Footer from "./ui/Footer";
+import { CartProvider } from "./context/cartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
-//TODO hacer un contexto de usuario y carrito de compras
+//TODO hacer un contexto de usuario
 
 export const metadata: Metadata = {
   title: "Clase 3",
@@ -20,11 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className} suppressHydrationWarning={true}>
-        <Navbar />
-        {children}
-        <Footer />
-      </body>
+      <CartProvider>
+        <body className={inter.className} suppressHydrationWarning={true}>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </CartProvider>
     </html>
   );
 }
