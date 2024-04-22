@@ -1,6 +1,4 @@
 "use client";
-//TODO boton de comprar con un alert de confirmacion
-//TODO boton limpiar el carrito y redirigir a root
 
 import { useCart } from "../context/cartContext";
 import Image from "next/image";
