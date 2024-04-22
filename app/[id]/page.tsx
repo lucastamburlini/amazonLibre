@@ -1,18 +1,21 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import { Product } from "../lib/definitions";
 import Image from "next/image";
-
-//TODO botones de agregar-quitar el producto al carrito
+import Button from "../ui/ButtonOne";
+import Link from "next/link";
+import { useCart } from "../context/cartContext";
+import Loading from "../loading";
 
 export default function Page({ params }: { params: { id: number } }) {
   const { id } = params;
+  const { addToCart } = useCart();
 
   const [productDetail, setProductDetail] = useState<Product>();
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     async function fetchDetailData() {
       const response = await fetch(`https://fakestoreapi.com/products/${id}`);
       const productDetail = await response.json();
@@ -21,6 +24,20 @@ export default function Page({ params }: { params: { id: number } }) {
     }
     fetchDetailData();
   }, []);
+
+  if (isLoading) return <Loading />;
+  if (!productDetail)
+    return (
+      <p className="min-w-full h-80 py-72 flex justify-center items-center">
+        No profile data
+      </p>
+    );
+
+  const handleAddToCart = () => {
+    if (productDetail) {
+      addToCart(productDetail);
+    }
+  };
 
   return (
     <section>
@@ -36,7 +53,6 @@ export default function Page({ params }: { params: { id: number } }) {
                     className="max-w-full max-h-full group-hover:opacity-75 p-2"
                     width={200}
                     height={200}
-                    priority={true}
                   />
                 </div>
                 <div className="sm:col-span-8 lg:col-span-7">
@@ -63,6 +79,18 @@ export default function Page({ params }: { params: { id: number } }) {
                           {productDetail.rating.rate} out of 5 stars
                         </p>
                       </div>
+                    </div>
+                    <div className="flex gap-3">
+                      <Button text={"Add to cart"} onClick={handleAddToCart} />
+                      <Link
+                        href="/cart"
+                        className="bg-blue-500 hover:bg-blue-700 
+                      text-white px-5 py-2.5 border 
+                      border-blue-700 rounded-full text-sm font-medium"
+                        title="Ir al carrito"
+                      >
+                        Go to cart
+                      </Link>
                     </div>
                   </section>
                 </div>
