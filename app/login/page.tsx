@@ -1,4 +1,4 @@
-//TODO login con posibilidad de crear una cuenta
+//TODO login con posibilidad de crear una cuenta y editar login
 
 
 /*
