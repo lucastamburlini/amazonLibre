@@ -1,31 +1,12 @@
-//TODO login con posibilidad de crear una cuenta
+//TODO login con posibilidad de crear una cuenta y editar login
+
+import GoogleButton from "../ui/GoogleButton";
 
 
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 export default function Example() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
+     
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           
@@ -84,6 +65,9 @@ export default function Example() {
               </button>
             </div>
           </form>
+
+          <GoogleButton />
+
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Not a member?{' '}
