@@ -4,10 +4,9 @@ import "./globals.css";
 import Navbar from "./ui/Navbar";
 import Footer from "./ui/Footer";
 import { CartProvider } from "./context/cartContext";
+import { UserSessionProvider } from "./context/userContext";
 
 const inter = Inter({ subsets: ["latin"] });
-
-//TODO hacer un contexto de usuario
 
 export const metadata: Metadata = {
   title: "Clase 3",
@@ -21,13 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <CartProvider>
-        <body className={inter.className} suppressHydrationWarning={true}>
-          <Navbar />
-          {children}
-          <Footer />
-        </body>
-      </CartProvider>
+      <UserSessionProvider>
+        <CartProvider>
+          <body className={inter.className} suppressHydrationWarning={true}>
+            <Navbar />
+            {children}
+            <Footer />
+          </body>
+        </CartProvider>
+      </UserSessionProvider>
     </html>
   );
 }
