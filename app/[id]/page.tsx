@@ -35,9 +35,17 @@ export default function Page({ params }: { params: { id: number } }) {
 
   const handleAddToCart = () => {
     if (productDetail) {
-      addToCart(productDetail);
-    }
-  };
+      const quantityInput = document.getElementById("quantityInput")  as HTMLInputElement ;
+      if (quantityInput) {
+        const quantity = parseInt(quantityInput.value, 10);
+        const productWithQuantity = {
+          ...productDetail,
+          quantity: quantity
+        };
+      addToCart(productWithQuantity);
+      }
+    };
+  }
 
   return (
     <section>
@@ -78,6 +86,10 @@ export default function Page({ params }: { params: { id: number } }) {
                         <p className="">
                           {productDetail.rating.rate} out of 5 stars
                         </p>
+                      </div>
+                      <div className="flex items-center">
+                        Quantity:
+                        <input id="quantityInput" type="number" className=" ms-1 w-16 px-2 py-1" defaultValue={0}/>                         
                       </div>
                     </div>
                     <div className="flex gap-3">
