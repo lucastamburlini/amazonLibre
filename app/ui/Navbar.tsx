@@ -6,6 +6,8 @@ import { getAuth, signOut } from "firebase/auth";
 import { app } from "../firebase/firebase";
 import { useCart } from "../context/cartContext";
 
+// TODO falta bloquear el carrito si no hay session de user
+
 const auth = getAuth(app);
 
 export default function Navbar() {

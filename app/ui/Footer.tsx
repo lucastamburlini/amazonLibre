@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+// TODO hacer un footer acorde a la pagina con info util
+
 export default function Footer() {
   return (
     <footer className="mx-auto max-w-2xl p-4 lg:max-w-7xl lg:px-8 flex justify-end gap-3">

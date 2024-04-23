@@ -7,7 +7,7 @@ async function fetchData() {
   const products = await response.json();
   return products;
 }
-// TODO cada vez que entremos al codigo, hacer un pull "git pull origin main"
+// TODO cada vez que entremos al codigo, hacer un pull "git pull origin dev"
 // TODO crear una branch nueva en /dev antes de trabajar con la descripcion del "TODO"
 
 export default async function Home() {

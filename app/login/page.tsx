@@ -1,4 +1,4 @@
-//TODO login con posibilidad de crear una cuenta y editar login
+//TODO login con posibilidad de crear una cuenta
 
 import GoogleButton from "../ui/GoogleButton";
 
