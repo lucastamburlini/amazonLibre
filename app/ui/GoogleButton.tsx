@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import {
   GoogleAuthProvider,
@@ -10,14 +10,15 @@ import {
 } from "firebase/auth";
 import { app } from "@/app/firebase/firebase";
 import { useEffect } from "react";
-import googleLogo from "@/app/assets/google.png"
+import googleLogo from "@/app/assets/google.png";
 import Image from "next/image";
 import { useUser } from "../context/userContext";
 import { useRouter } from "next/navigation";
+import Loading from "../loading";
 
 const auth = getAuth(app);
 
-export default function GoogleButton () {
+export default function GoogleButton() {
   const { login } = useUser();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -44,7 +45,7 @@ export default function GoogleButton () {
     });
 
     return () => unsubscribe();
-  }, [login]);
+  }, []);
 
   const googleSignIn = async () => {
     try {
@@ -59,19 +60,25 @@ export default function GoogleButton () {
 
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-sm flex w-full items-center justify-center">
-      
+      {loading ? (
+        "Loading..."
+      ) : (
         <button
-          type="submit"
           onClick={googleSignIn}
-          className="h-12 flex w-full items-center justify-center bg-white rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm border border-gray-300 hover:bg-green-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-300 transition-colors duration-200 ease-in-out"
+          className="h-12 flex w-full items-center justify-center bg-white rounded-full px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm border border-gray-300 hover:bg-yellow-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-300 transition-all duration-200 ease-in-out"
         >
           <>
-            <Image src={googleLogo} width={50} height={50} alt="Google Logo" className="w-6 h-6 mr-4" />
+            <Image
+              src={googleLogo}
+              width={50}
+              height={50}
+              alt="Google Logo"
+              className="w-6 h-6 mr-4"
+            />
             Sign in with Google
           </>
         </button>
-     
+      )}
     </div>
   );
-};
-
+}

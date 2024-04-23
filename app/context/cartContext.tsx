@@ -1,13 +1,9 @@
 "use client";
 import React, { createContext, useContext, useState, ReactNode } from "react";
-import { CartContextType, Product } from "../lib/definitions";
+import { CartContextType, CartProviderProps, Product } from "../lib/definitions";
 import Swal from "sweetalert2";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
-
-interface CartProviderProps {
-  children: ReactNode;
-}
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cart, setCart] = useState<Product[]>([]);

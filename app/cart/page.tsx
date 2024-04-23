@@ -12,12 +12,12 @@ export default function Cart() {
 
   const calculateTotalCartPrice = () => {
     const totalPrice = cart.reduce(
-      (total, product) => total + (product.quantity ? product.price * product.quantity : 0),
+      (total, product) =>
+        total + (product.quantity ? product.price * product.quantity : 0),
       0
     );
     return totalPrice;
   };
-  
 
   const handleClearCart = () => {
     Swal.fire({
@@ -86,14 +86,16 @@ export default function Cart() {
                   </div>
                   <div className="flex-grow">
                     <h2 className="text-xl font-semibold">{product.title}</h2>
-                    <p className="text-gray-600">Quantity: {product.quantity}</p>{" "}
+                    <p className="text-gray-600">
+                      Quantity: {product.quantity}
+                    </p>{" "}
                     <p className="text-gray-600">
                       Price per unit: ${product.price}
                     </p>
                   </div>
                 </li>
               ))}
-              <li className="mb-4 flex items-center gap-5 mt-10 mb-10">
+              <li className="flex items-center gap-5 mt-10 mb-10">
                 <h2 className="text-xl font-semibold">Total to pay: </h2>
                 <p className="text-gray-600 text-xl font-bold">
                   ${calculateTotalCartPrice()}

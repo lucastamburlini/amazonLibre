@@ -35,17 +35,19 @@ export default function Page({ params }: { params: { id: number } }) {
 
   const handleAddToCart = () => {
     if (productDetail) {
-      const quantityInput = document.getElementById("quantityInput")  as HTMLInputElement ;
+      const quantityInput = document.getElementById(
+        "quantityInput"
+      ) as HTMLInputElement;
       if (quantityInput) {
         const quantity = parseInt(quantityInput.value, 10);
         const productWithQuantity = {
           ...productDetail,
-          quantity: quantity
+          quantity: quantity,
         };
-      addToCart(productWithQuantity);
+        addToCart(productWithQuantity);
       }
-    };
-  }
+    }
+  };
 
   return (
     <section>
@@ -89,7 +91,12 @@ export default function Page({ params }: { params: { id: number } }) {
                       </div>
                       <div className="flex items-center">
                         Quantity:
-                        <input id="quantityInput" type="number" className=" ms-1 w-16 px-2 py-1" defaultValue={0}/>                         
+                        <input
+                          id="quantityInput"
+                          type="number"
+                          className=" ms-1 w-16 px-2 py-1"
+                          defaultValue={1}
+                        />
                       </div>
                     </div>
                     <div className="flex gap-3">
@@ -98,7 +105,7 @@ export default function Page({ params }: { params: { id: number } }) {
                         href="/cart"
                         className="bg-blue-500 hover:bg-blue-700 
                       text-white px-5 py-2.5 border 
-                      border-blue-700 rounded-full text-sm font-medium"
+                      border-blue-700 rounded-full text-sm font-medium transition-all duration-200 ease-in-out"
                         title="Ir al carrito"
                       >
                         Go to cart

@@ -1,11 +1,16 @@
-"use client"
+"use client";
 import { createContext, useContext, useState, ReactNode } from "react";
 import { User, UserContextType } from "../lib/definitions";
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>(() => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("user") || "null");
+    }
+    return null;
+  });
   const [users, setUsers] = useState<User[]>([]);
 
   const login = (userData: User) => {
