@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-// TODO hacer un footer acorde a la pagina con info util
-
 export default function Footer() {
   return (        
     <footer className="bg-slate-800">
