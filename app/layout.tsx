@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./ui/Navbar";
 import Footer from "./ui/Footer";
 import { CartProvider } from "./context/cartContext";
+import {UserSessionProvider} from "./context/userContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <UserSessionProvider>
       <CartProvider>
         <body className={inter.className} suppressHydrationWarning={true}>
           <Navbar />
@@ -28,6 +30,7 @@ export default function RootLayout({
           <Footer />
         </body>
       </CartProvider>
+      </UserSessionProvider>
     </html>
   );
 }
