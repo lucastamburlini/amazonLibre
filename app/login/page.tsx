@@ -64,7 +64,7 @@ export default function Example() {
             </div>
           </form>
 
-          <p className="flex w-full justify-center block text-sm font-medium leading-6 text-gray-900 mt-5 mb-5">
+          <p className="flex w-full justify-center text-sm font-medium leading-6 text-gray-900 mt-5 mb-5">
             Or login with
           </p>
 

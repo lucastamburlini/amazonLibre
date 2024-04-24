@@ -5,6 +5,7 @@ import { useState } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../firebase/firebase";
 import { useCart } from "../context/cartContext";
+import Image from "next/image";
 
 // TODO falta bloquear el carrito si no hay session de user
 
@@ -93,10 +94,12 @@ export default function Navbar() {
                       onClick={toggleMenuProfile}
                     >
                       <div className="relative h-8 w-8 flex rounded-full bg-gray-800 text-sm">
-                        <img
+                        <Image
                           className="h-8 w-8 rounded-full"
                           src={user.pictureUrl}
                           alt={`${user.firstName} ${user.lastName} image.`}
+                          width={50}
+                          height={50}
                         />
                       </div>
                     </button>
