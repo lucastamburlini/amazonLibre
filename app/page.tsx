@@ -4,6 +4,8 @@ import { Product } from "./lib/definitions";
 
 async function fetchData() {
   const response = await fetch("https://fakestoreapi.com/products");
+  // descomentar la siguiente línea para probar el loading (spinner)
+  // await new Promise(resolve => setTimeout(resolve, 5000)); 
   const products = await response.json();
   return products;
 }
