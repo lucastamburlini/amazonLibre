@@ -14,59 +14,59 @@ export default function Footer() {
               </div>
               <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">  
                   <div>
-                      <h2 className="mb-6 text-sm font-semibold uppercase text-white">Podemos Ayudarte</h2>
+                      <h2 className="mb-6 text-sm font-semibold uppercase text-white">Let Us Help You</h2>
                       <ul className="text-gray-500 dark:text-gray-400 font-medium">
                           <li className="mb-1">
-                              <Link href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019?adgroupsurvey={adgroupsurvey}&gad_source=1" className="hover:underline ">Precauciones COVID 19</Link>
+                              <Link href="https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019?adgroupsurvey={adgroupsurvey}&gad_source=1" className="hover:underline ">AmazonLibre and COVID-19</Link>
                           </li>
                           <li className="mb-1">
-                              <Link href="/login" className="hover:underline">Tu Cuenta</Link>
+                              <Link href="/login" className="hover:underline">Your Account</Link>
                           </li>
                           <li className="mb-1">
-                              <Link href="/dashboard" className="hover:underline">Tus Pedidos</Link>
+                              <Link href="/dashboard" className="hover:underline">Your Orders</Link>
                           </li>
                           <li className="mb-1">
-                              <Link href="https://www.amazon.com/-/es/gp/help/customer/display.html?nodeId=468520&ref_=footer_shiprates" className="hover:underline">Politicas de envio y tarifas</Link>
+                              <Link href="https://www.amazon.com/-/es/gp/help/customer/display.html?nodeId=468520&ref_=footer_shiprates" className="hover:underline">Shipping Rates & Policies</Link>
                           </li>
                           <li className="mb-1">
                               <Link href="https://www.amazon.com/404" className="hover:underline">AmazonLibre Assistant</Link>
                           </li>
                           <li className="mb-1">
-                              <Link href="https://www.amazon.com/-/es/gp/help/customer/display.html?nodeId=508510&ref_=footer_gw_m_b_he" className="hover:underline">Ayuda</Link>
+                              <Link href="https://www.amazon.com/-/es/gp/help/customer/display.html?nodeId=508510&ref_=footer_gw_m_b_he" className="hover:underline">Help</Link>
                           </li>
                       </ul>
                   </div>                
                   <div>
-                      <h2 className="mb-6 text-sm font-semibold uppercase text-white">Conócenos</h2>
+                      <h2 className="mb-6 text-sm font-semibold uppercase text-white">Get to Know Us</h2>
                       <ul className="text-gray-500 dark:text-gray-400 font-medium">
                           <li className="mb-1">
-                              <Link href="https://www.amazon.jobs/en/" className="hover:underline">Trabaja en AmazonLibre</Link>
+                              <Link href="https://www.amazon.jobs/en/" className="hover:underline">Careers</Link>
                           </li>
                           <li className="mb-1">
                               <Link href="https://www.aboutamazon.com/" className="hover:underline">Blog</Link>
                           </li>
                           <li className="mb-1">
-                              <Link href="https://www.aboutamazon.com/" className="hover:underline">Acerca de AmazonLibre</Link>
+                              <Link href="https://www.aboutamazon.com/" className="hover:underline">About AmazonLibre</Link>
                           </li>
                       </ul>
                   </div>
                   <div>
-                      <h2 className="mb-6 text-sm font-semibold uppercase text-white">Gana dinero con nosotros</h2>
+                      <h2 className="mb-6 text-sm font-semibold uppercase text-white">Make Money with Us</h2>
                       <ul className="text-gray-500 dark:text-gray-400 font-medium">
                           <li className="mb-1">
-                              <Link href="https://sell.amazon.com/?ld=AZFSSOA&ref_=footer_soa" className="hover:underline">Vender productos en AmazonLibre</Link>
+                              <Link href="https://sell.amazon.com/?ld=AZFSSOA&ref_=footer_soa" className="hover:underline">Sell Products on AmazonLibre</Link>
                           </li>
                           <li className="mb-1">
-                              <Link href="https://affiliate-program.amazon.com/" className="hover:underline">Programa de Afiliados</Link>
+                              <Link href="https://affiliate-program.amazon.com/" className="hover:underline">Become Affiliate</Link>
                           </li>
                           <li className="mb-1">
-                              <Link href="https://go.thehub-amazon.com/amazon-hub-locker" className="hover:underline">Habilita tu AmazonLibreHub</Link>
+                              <Link href="https://go.thehub-amazon.com/amazon-hub-locker" className="hover:underline">Host an AmazonLibre Hub</Link>
                           </li>   
                           <li className="mb-1">
-                              <Link href="https://ir.aboutamazon.com/overview/default.aspx" className="hover:underline">Relacion con los inversionistas</Link>
+                              <Link href="https://ir.aboutamazon.com/overview/default.aspx" className="hover:underline">Investor Relations</Link>
                           </li>  
                           <li className="mb-1">
-                              <Link href="https://www.amazon.com/-/es/gp/browse.html?node=2102313011&ref_=footer_devices" className="hover:underline">Dispositivos AmazonLibre</Link>
+                              <Link href="https://www.amazon.com/-/es/gp/browse.html?node=2102313011&ref_=footer_devices" className="hover:underline">AmazonLibre Devices</Link>
                           </li>                         
                       </ul>
                   </div>                  
