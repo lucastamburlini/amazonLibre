@@ -3,13 +3,7 @@
  */
 const nextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "fakestoreapi.com",
-        pathname: "**",
-      },
-    ],
+    domains: ['fakestoreapi.com', 'lh3.googleusercontent.com'],
   },
 };
 
