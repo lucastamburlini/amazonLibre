@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <UserSessionProvider>
           <CartProvider>
-            <Navbar suprimirHydrationWarning={true}/>
+            <Navbar />
             {children}
             <Footer />
           </CartProvider>
