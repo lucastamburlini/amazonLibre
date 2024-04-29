@@ -11,7 +11,14 @@ export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
     }
     return null;
   });
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<User[]>(() => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("users") || "[]");
+    }
+    return [];
+  });
+
+  console.log("nuevo usuario", users);
 
   const login = (userData: User) => {
     setUser(userData);
@@ -21,8 +28,13 @@ export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
   };
 
+  const createUser = (userData: User) => {
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUsers([...users, userData]);
+  };
+
   return (
-    <UserContext.Provider value={{ users, user, login, logout }}>
+    <UserContext.Provider value={{ users, user, login, logout, createUser }}>
       {children}
     </UserContext.Provider>
   );
