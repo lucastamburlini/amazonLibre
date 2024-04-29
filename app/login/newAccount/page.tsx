@@ -64,7 +64,7 @@ export default function () {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleNewUser}>
             <div>
               <label
                 htmlFor="firstName"
@@ -151,7 +151,6 @@ export default function () {
               <button
                 type="submit"
                 className="w-full text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center"
-                onClick={handleNewUser}
               >
                 Create account
               </button>

@@ -1,6 +1,8 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
 import { User, UserContextType } from "../lib/definitions";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
@@ -17,11 +19,24 @@ export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
     }
     return [];
   });
-
-  console.log("nuevo usuario", users);
+  const router = useRouter();
 
   const login = (userData: User) => {
-    setUser(userData);
+    const existingUser = users.find(
+      (user) =>
+        user.email === userData.email && user.password === userData.password
+    );
+    if (existingUser) {
+      setUser(existingUser);
+      router.push("/");
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "User not found",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    }
   };
 
   const logout = () => {
@@ -29,7 +44,7 @@ export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const createUser = (userData: User) => {
-    localStorage.setItem("user", JSON.stringify(userData));
+    localStorage.setItem("users", JSON.stringify([...users, userData]));
     setUsers([...users, userData]);
   };
 

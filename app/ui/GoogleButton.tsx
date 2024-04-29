@@ -14,12 +14,11 @@ import googleLogo from "@/app/assets/google.png";
 import Image from "next/image";
 import { useUser } from "../context/userContext";
 import { useRouter } from "next/navigation";
-import Loading from "../loading";
 
 const auth = getAuth(app);
 
 export default function GoogleButton() {
-  const { login } = useUser();
+  const { login, createUser, users } = useUser();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
 
@@ -30,14 +29,20 @@ export default function GoogleButton() {
           ? user.displayName.split(" ")
           : [];
         const googleUser = {
-          firstName: displayNameParts[0] || "",
           id: user.uid,
+          firstName: displayNameParts[0] || "",
           lastName: displayNameParts[1] || "",
           pictureUrl: user.photoURL || "",
+          email: user.email || "",
         };
-        localStorage.setItem("userSession", JSON.stringify(googleUser));
-        login(googleUser);
 
+        const existingUser = users.find((u) => u.email === googleUser.email);
+        if (!existingUser) {
+          createUser(googleUser);
+        } else {
+          login(existingUser);
+        }
+        localStorage.setItem("user", JSON.stringify(googleUser));
         router.push("/");
       } else {
         setLoading(false);
