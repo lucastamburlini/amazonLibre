@@ -36,13 +36,9 @@ export default function GoogleButton() {
           email: user.email || "",
         };
 
-        const existingUser = users.find((u) => u.email === googleUser.email);
-        if (!existingUser) {
-          createUser(googleUser);
-        } else {
-          login(existingUser);
-        }
+
         localStorage.setItem("user", JSON.stringify(googleUser));
+        login(googleUser);
         router.push("/");
       } else {
         setLoading(false);

@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useUser } from "../context/userContext";
-import { User } from "../lib/definitions";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const { login } = useUser();
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -15,14 +16,12 @@ export default function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const user: User = {
+    const user = {
       email: formData.email,
       password: formData.password,
-      firstName: "",
-      lastName: "",
-      id: "",
-      pictureUrl: "",
     };
+    localStorage.setItem("user", JSON.stringify(user));
+    router.push("/");
     login(user);
   };
 

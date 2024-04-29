@@ -10,7 +10,7 @@
 
 ## Objetivos adicionales (No son necesarios para conseguir una nota minima, pero si suman puntos):
 
-- [] Crear un sistema que permita registrar una cuenta desde la aplicación
+- [x] Crear un sistema que permita registrar una cuenta desde la aplicación
 - [] Si se puede, crear una pagina adicional que contenga información sobre las compras que haya realizado un usuario
 
 ## Recomendaciones de los dirigentes del curso:

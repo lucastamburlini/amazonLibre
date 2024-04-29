@@ -20,7 +20,7 @@ export interface User {
   id: string;
   pictureUrl: string;
   password?: string;
-  email: string;
+  email?: string;
 }
 
 export interface ButtonProps {
