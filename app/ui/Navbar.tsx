@@ -6,8 +6,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { app } from "../firebase/firebase";
 import { useCart } from "../context/cartContext";
 import Image from "next/image";
-
-// TODO falta bloquear el carrito si no hay session de user
+import Logo from "./Logo";
 
 const auth = getAuth(app);
 
@@ -40,9 +39,7 @@ export default function Navbar() {
     <nav className="relative z-50 h-16 bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="flex items-center flex-shrink-0 text-white">
-            <span className="text-2xl font-bold">AmazonLibre</span>
-          </div>
+          <Logo />
           <div className="hidden sm:block">
             <div className="flex gap-5 items-center">
               <Link
@@ -94,16 +91,31 @@ export default function Navbar() {
                       onClick={toggleMenuProfile}
                     >
                       <div className="relative h-8 w-8 flex rounded-full bg-gray-800 text-sm">
-                        <Image
-                          className="h-8 w-8 rounded-full"
-                          src={user.pictureUrl}
-                          alt={`${user.firstName} ${user.lastName} image.`}
-                          width={50}
-                          height={50}
-                        />
+                        {!user.pictureUrl ? (
+                          <div className="w-full h-full p-1.5">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 256 256"
+                            >
+                              <path
+                                fill="currentColor"
+                                d="M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8M72 96a56 56 0 1 1 56 56a56.06 56.06 0 0 1-56-56"
+                              />
+                            </svg>
+                          </div>
+                        ) : (
+                          <Image
+                            className="h-8 w-8 rounded-full"
+                            src={user.pictureUrl}
+                            alt={`${user.firstName} ${user.lastName} image.`}
+                            width={50}
+                            height={50}
+                          />
+                        )}
                       </div>
                     </button>
                   </div>
+
                   {isMenuProfileOpen && (
                     <div
                       className="absolute top-14 right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -122,7 +134,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <Link
-                  href={"/login"}
+                  href={"/auth/"}
                   className="hover:font-bold transition-font duration-200"
                 >
                   Sign in
@@ -198,7 +210,7 @@ export default function Navbar() {
 
           {!user ? (
             <Link
-              href={"/login"}
+              href={"/auth/"}
               className="block hover:font-bold transition-font duration-200"
               onClick={toggleMenu}
             >

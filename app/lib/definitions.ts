@@ -16,11 +16,12 @@ export interface Product {
 
 export interface User {
   firstName: string;
-  id: string;
   lastName: string;
+  id: string;
   pictureUrl: string;
+  password?: string;
+  email?: string;
 }
-
 
 export interface ButtonProps {
   text: string;
@@ -42,4 +43,5 @@ export interface UserContextType {
   user: User | null;
   login: (userData: User) => void;
   logout: () => void;
+  createUser: (userData: User) => void;
 }

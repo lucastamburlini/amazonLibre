@@ -6,10 +6,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(() => {
-    if (typeof window !== "undefined") {
-      return JSON.parse(localStorage.getItem("user") || "null");
-    }
-    return null;
+    return JSON.parse(localStorage.getItem("user") || "null");
   });
   const [users, setUsers] = useState<User[]>([]);
 
@@ -21,8 +18,12 @@ export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
   };
 
+  const createUser = (userData: User) => {
+    setUsers([...users, userData]);
+  };
+
   return (
-    <UserContext.Provider value={{ users, user, login, logout }}>
+    <UserContext.Provider value={{ users, user, login, logout, createUser }}>
       {children}
     </UserContext.Provider>
   );

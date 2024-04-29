@@ -1,11 +1,11 @@
 "use client";
 
-import { useCart } from "../context/cartContext";
+import { useCart } from "../../context/cartContext";
 import Image from "next/image";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-import ButtonOne from "../ui/ButtonOne";
-import { useUser } from "../context/userContext";
+import ButtonOne from "../../ui/ButtonOne";
+import { useUser } from "../../context/userContext";
 import Link from "next/link";
 
 export default function Cart() {
@@ -75,7 +75,7 @@ export default function Cart() {
       {!user ? (
         <div className="min-h-[600px] flex items-center justify-center gap-1 text-lg">
           <p>You must</p>
-          <Link href={"/login"} className="hover:underline text-yellow-500">
+          <Link href={"/auth"} className="hover:underline text-yellow-500">
             log in
           </Link>
           <p>to view the cart</p>
