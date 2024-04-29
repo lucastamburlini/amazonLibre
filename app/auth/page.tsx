@@ -1,6 +1,5 @@
-import Link from "next/link";
-import GoogleButton from "../ui/GoogleButton";
-import LoginForm from "../ui/LoginForm";
+import GoogleButton from "@/app/ui/GoogleButton";
+import LoginForm from "@/app/ui/LoginForm";
 
 export default function () {
   return (

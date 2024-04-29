@@ -20,15 +20,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <UserSessionProvider>
-        <CartProvider>
-          <body className={inter.className} suppressHydrationWarning={true}>
-            <Navbar />
+      <body className={inter.className}>
+        <UserSessionProvider>
+          <CartProvider>
+            <Navbar suprimirHydrationWarning={true}/>
             {children}
             <Footer />
-          </body>
-        </CartProvider>
-      </UserSessionProvider>
+          </CartProvider>
+        </UserSessionProvider>
+      </body>
     </html>
   );
 }

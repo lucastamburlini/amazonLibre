@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Product } from "../lib/definitions";
+import { Product } from "../../lib/definitions";
 import Image from "next/image";
-import Button from "../ui/ButtonOne";
+import Button from "../../ui/ButtonOne";
 import Link from "next/link";
-import { useCart } from "../context/cartContext";
-import Loading from "../loading";
+import { useCart } from "../../context/cartContext";
+import Loading from "../../loading";
 
 export default function Page({ params }: { params: { id: number } }) {
   const { id } = params;

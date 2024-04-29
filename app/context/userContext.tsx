@@ -6,10 +6,7 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserSessionProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(() => {
-    if (typeof window !== "undefined") {
-      return JSON.parse(localStorage.getItem("user") || "null");
-    }
-    return null;
+    return JSON.parse(localStorage.getItem("user") || "null");
   });
   const [users, setUsers] = useState<User[]>([]);
 

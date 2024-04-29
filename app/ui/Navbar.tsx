@@ -6,6 +6,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { app } from "../firebase/firebase";
 import { useCart } from "../context/cartContext";
 import Image from "next/image";
+import Logo from "./Logo";
 
 const auth = getAuth(app);
 
@@ -38,9 +39,7 @@ export default function Navbar() {
     <nav className="relative z-50 h-16 bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          <div className="flex items-center flex-shrink-0 text-white">
-            <span className="text-2xl font-bold">AmazonLibre</span>
-          </div>
+          <Logo />
           <div className="hidden sm:block">
             <div className="flex gap-5 items-center">
               <Link
@@ -116,6 +115,7 @@ export default function Navbar() {
                       </div>
                     </button>
                   </div>
+
                   {isMenuProfileOpen && (
                     <div
                       className="absolute top-14 right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -134,7 +134,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <Link
-                  href={"/login"}
+                  href={"/auth/"}
                   className="hover:font-bold transition-font duration-200"
                 >
                   Sign in
@@ -210,7 +210,7 @@ export default function Navbar() {
 
           {!user ? (
             <Link
-              href={"/login"}
+              href={"/auth/"}
               className="block hover:font-bold transition-font duration-200"
               onClick={toggleMenu}
             >

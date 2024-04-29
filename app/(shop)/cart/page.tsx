@@ -1,11 +1,11 @@
 "use client";
 
-import { useCart } from "../context/cartContext";
+import { useCart } from "../../context/cartContext";
 import Image from "next/image";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
-import ButtonOne from "../ui/ButtonOne";
-import { useUser } from "../context/userContext";
+import ButtonOne from "../../ui/ButtonOne";
+import { useUser } from "../../context/userContext";
 import Link from "next/link";
 
 export default function Cart() {

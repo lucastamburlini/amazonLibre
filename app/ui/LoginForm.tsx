@@ -73,7 +73,7 @@ export default function LoginForm() {
 
       <p className="flex w-full justify-center text-sm font-medium leading-6 text-gray-900 mt-5 mb-5 gap-1">
         Not registered? do it
-        <Link href={"/login/newAccount"} className="text-yellow-400 font-b">
+        <Link href={"/auth/newAccount"} className="text-yellow-400 font-b">
           here
         </Link>
       </p>
